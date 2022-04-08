@@ -2,20 +2,18 @@ name: Quality Checks
 
 on: [pull_request]
 
-env:
-  BUNDLE_SPECIFIC_PLATFORM: x86_64-linux
-
 jobs:
   Rubocop:
     name: Rubocop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+
       - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-      - name: Install Rubocop
+
+      - name: Install Gems
         run: |
+          bundle lock --add-platform x86_64-linux
           bundle install
 
       - name: Check code
@@ -37,8 +35,11 @@ jobs:
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true
+
+    - name: Install Gems
+      run: |
+        bundle lock --add-platform x86_64-linux
+        bundle install
 
     - name: Install PostgreSQL client
       run: sudo apt-get install libpq-dev
