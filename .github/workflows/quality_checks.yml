@@ -19,6 +19,8 @@ jobs:
         run: bundle exec rubocop
   tests:
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_FORCE_RUBY_PLATFORM: x86_64-linu
     services:
       postgres:
         image: postgres:11.5
