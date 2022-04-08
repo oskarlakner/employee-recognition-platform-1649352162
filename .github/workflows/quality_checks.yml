@@ -3,8 +3,8 @@ name: Quality Checks
 on: [pull_request]
 
 env:
-  BUNDLE_FORCE_RUBY_PLATFORM: x86_64-linux
-  
+  BUNDLE_SPECIFIC_PLATFORM: x86_64-linux
+
 jobs:
   Rubocop:
     name: Rubocop
