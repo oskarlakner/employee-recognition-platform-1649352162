@@ -20,7 +20,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     env:
-      BUNDLE_FORCE_RUBY_PLATFORM: x86_64-linu
+      BUNDLE_FORCE_RUBY_PLATFORM: x86_64-linux
     services:
       postgres:
         image: postgres:11.5
